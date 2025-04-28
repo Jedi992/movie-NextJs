@@ -1,5 +1,5 @@
-import Header from "../components/Header/Header"
 import Input from "../components/Input/Input"
+import Slider from "../components/Slider/Slider"
 
 export default function Home() {
 
@@ -8,12 +8,18 @@ export default function Home() {
       <main>
         <section className="mb-6">
           <article>
-          <h6 className="text-[64px] text-[#ffffff]">MaileHereko</h6>
+          <h6 className="text-[64px] text-[#ffffff]">Movie</h6>
           <p className="text-[#8E95A9] text-base">List of movies and TV Shows</p>
           </article>
         </section>
         <section>
         <Input />
+        </section>
+        <section>
+          <div>
+            <h2>Movies</h2>
+            <Slider />
+          </div>
         </section>
       </main>
 

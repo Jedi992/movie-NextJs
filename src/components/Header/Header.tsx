@@ -16,8 +16,8 @@ export default function Home() {
         </div>
         <div>
           <ul className="flex  gap-4 ">
-            <li className="py-3 px-4 font-semibold text-[#A8AEBF]"><a href="#">Movies</a></li>
-            <li className="py-3 px-4 font-semibold text-[#A8AEBF]"><a href="#">TV Shows</a></li>
+            {/* <li className="py-3 px-4 font-semibold text-[#A8AEBF]"><a href="#">Movies</a></li> */}
+            {/* <li className="py-3 px-4 font-semibold text-[#A8AEBF]"><a href="#">TV Shows</a></li> */}
             <li className="py-3 px-4 font-semibold text-[#A8AEBF]"><a href="#">Login</a></li>
           </ul>
         </div>
