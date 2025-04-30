@@ -1,7 +1,14 @@
-'use client' // Важно для использования Swiper в Next.js
-
+'use client'
+import {fetchFilms}  from '@/api/fetchFilms';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { useEffect, useState } from 'react'; 
+import { useRouter } from 'next/navigation';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 interface Film {
   id: string;
@@ -10,40 +17,20 @@ interface Film {
   year:number;
 }
 
-// Импортируем стили Swiper
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { useEffect, useState } from 'react';
-// 
 
-export default function Slider() {
+
+export default function SliderMovie() {
   const [dataFilms, setDataFilms] = useState<Film[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  // 
-  //
-  useEffect(() => {
-    async function fetchFilms() {
-      const res = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_POPULAR_MOVIES&page=5`, {
-        method: 'GET',
-        headers: {
-          'X-API-KEY': '229eed78-a9a7-44b0-ae3b-73d7798e927c',
-          'Content-Type': 'application/json',
-        },
-      })
-      const data = await res.json();
-      setDataFilms(data.items)
-
-    }
-    fetchFilms()
-  }, [setDataFilms])
-
-  console.log(dataFilms)
-  const findFilms = (film ) => {
-    console.log(film)
-  }
-
+  const router = useRouter() 
   
+  useEffect(() => {
+    fetchFilms().then(data => setDataFilms(data.items))
+  }, [setDataFilms])
+  const findFilms = (film) => {
+    router.push(`/details/${film.kinopoiskId.toString()}`)
+
+  }
 
   return (
     <Swiper
@@ -60,11 +47,12 @@ export default function Slider() {
             <ul onClick={() => findFilms(slide)} className='cursor-pointer'>
               <li><img className="size-[300px] rounded-[10px]" src={slide.posterUrl} alt="" /></li>
               <li className='text-center mt-[10px]'>{slide.nameRu}</li>
-              <li>{slide.year}</li>
+              <li  className='text-center'>{slide.year}</li>
             </ul>
           </div>
         </SwiperSlide>
       ))}
     </Swiper>
+    
   );
 };

@@ -1,5 +1,6 @@
 import Input from "../components/Input/Input"
-import Slider from "../components/Slider/Slider"
+import SliderMovie from "../components/SliderMovie/SliderMovie"
+import SliderTvShows from "../components/SliderTvShows/SliderTvShows"
 
 export default function Home() {
 
@@ -8,17 +9,24 @@ export default function Home() {
       <main>
         <section className="mb-6">
           <article>
-          <h6 className="text-[64px] text-[#ffffff]">Movie</h6>
-          <p className="text-[#8E95A9] text-base">List of movies and TV Shows</p>
+            <h6 className="text-[64px] text-[#ffffff]">MovieApp</h6>
+            <p className="text-[#8E95A9] text-base">List of movies and TV Shows</p>
           </article>
         </section>
         <section>
-        <Input />
+          <Input />
         </section>
         <section>
           <div>
+            
+            <section className="mt-4">
             <h2>Movies</h2>
-            <Slider />
+              <SliderMovie />
+              </section>
+            <section className="mt-4">
+              <h2>TV Shows</h2>
+              <SliderTvShows />
+            </section>
           </div>
         </section>
       </main>

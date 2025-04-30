@@ -1,8 +1,10 @@
+'use client'
+
 import Image from "next/image";
 import logo from "../../../public/logo.svg"
 
 export default function Home() {
-
+  
   return (
     <header className="mb-20 max-w-[1200] mx-auto my-0">
       <nav className="flex justify-between items-center">
